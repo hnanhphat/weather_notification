@@ -67,6 +67,7 @@ function App() {
   useEffect(() => {
     render();
   }, [city, time]);
+  
 
   return (
     <div>
