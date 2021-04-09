@@ -53,7 +53,7 @@ function App() {
     setCity(value);
   }
 
-  const render = () => {
+  const renderA = () => {
     if(city === '') {
       navigator.geolocation.getCurrentPosition((position) => {
         const { latitude, longitude } = position.coords;
@@ -65,9 +65,9 @@ function App() {
   }
 
   useEffect(() => {
-    render();
+    renderA();
   }, [city, time]);
-  
+
 
   return (
     <div>
