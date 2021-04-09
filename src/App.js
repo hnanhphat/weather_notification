@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from './logo.png';
 import './App.css';
 import Content from './components/Content';
@@ -53,18 +53,19 @@ function App() {
     setCity(value);
   }
 
-  const renderA = () => {
-    if(city === '') {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const { latitude, longitude } = position.coords;
-        getWeather(latitude, longitude);
-      });
-    } else {
-      getWeather('', '', city);
-    }
-  }
+
 
   useEffect(() => {
+    const renderA = () => {
+      if(city === '') {
+        navigator.geolocation.getCurrentPosition((position) => {
+          const { latitude, longitude } = position.coords;
+          getWeather(latitude, longitude);
+        });
+      } else {
+        getWeather('', '', city);
+      }
+    }
     renderA();
   }, [city, time]);
 
